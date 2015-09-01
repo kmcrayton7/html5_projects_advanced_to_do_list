@@ -183,8 +183,26 @@
 		});
 
 	});
+			
+		$('input[type="text"]').on('keydown', function(e){
+			var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;			
+			if(key === 13) {
+				e.preventDefault();
+				var inputs = $(this).closest('form').find(':input:visible');
+				input.eq(inputs.index(this) + 1).focus();
+			}
+		});
+			
+			$('#theList').on('change', '.listItem', function(e) {
+				currentValue = $(this).val();
+				$(this).attr('value', currentValue);
+			});
 		
+			$('.sortable').sortable().bind('sortupdate', function() {
+					
+			});
 });
 </script>
 </body>
 </html>
+
